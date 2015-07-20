@@ -59,11 +59,9 @@ NSString* const DEFAULT_SOUND = @"res://platform_default";
 /**
  * The notification's ID.
  */
-- (NSNumber*) id
+- (NSString*) id
 {
-    NSInteger id = [[dict objectForKey:@"id"] integerValue];
-
-    return [NSNumber numberWithInteger:id];
+    return [dict objectForKey:@"id"];
 }
 
 /**
@@ -150,7 +148,7 @@ NSString* const DEFAULT_SOUND = @"res://platform_default";
  */
 - (NSCalendarUnit) repeatInterval
 {
-    NSString* interval = [dict objectForKey:@"every"];
+    NSString* interval = [(NSNumber *)[dict objectForKey:@"every"] stringValue];
 
     if ([self stringIsNullOrEmpty:interval]) {
         return NSCalendarUnitEra;
@@ -188,14 +186,6 @@ NSString* const DEFAULT_SOUND = @"res://platform_default";
  */
 - (NSDictionary*) userInfo
 {
-    if ([dict objectForKey:@"updatedAt"]) {
-        NSMutableDictionary* data = [dict mutableCopy];
-
-        [data removeObjectForKey:@"updatedAt"];
-
-        return data;
-    }
-
     return dict;
 }
 
