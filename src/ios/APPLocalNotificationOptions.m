@@ -148,7 +148,7 @@ NSString* const DEFAULT_SOUND = @"res://platform_default";
  */
 - (NSCalendarUnit) repeatInterval
 {
-    NSString* interval = [(NSNumber *)[dict objectForKey:@"every"] stringValue];
+    NSString* interval = [dict objectForKey:@"every"];
 
     if ([self stringIsNullOrEmpty:interval]) {
         return NSCalendarUnitEra;
