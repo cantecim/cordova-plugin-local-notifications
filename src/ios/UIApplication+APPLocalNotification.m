@@ -185,7 +185,7 @@
 
     for (UILocalNotification* notification in notifications)
     {
-        if([[NSString stringWithFormat:@"%@", notification.options.id] isEqualToString:id]) {
+        if([[NSString stringWithFormat:@"%@", notification.options.id] isEqualToString:[NSString stringWithFormat:@"%@", id]]) {
         //if ([notification.options.id isEqualToString:id]) {
             return notification;
         }
